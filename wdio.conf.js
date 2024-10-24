@@ -1,47 +1,31 @@
-export const config = {
-    runner: 'local',
+exports.config = {
     specs: [
-        './features/**/*.feature'
+        './test/specs/**/*.js'
     ],
     exclude: [],
     maxInstances: 10,
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true,
-        'goog:chromeOptions': {
-            args: ['--window-size=1920,1080']
-        }
+        acceptInsecureCerts: true
     }],
     logLevel: 'info',
-    bail: 0,
-    baseUrl: 'https://www.saucedemo.com',
+    baseUrl: 'https://new-admin-webapp.qa.monokera.site',
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    framework: 'cucumber',
+    framework: 'mocha',
     reporters: [
         'spec',
         ['allure', {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: false,
-            disableWebdriverScreenshotsReporting: false,
-            useCucumberStepReporter: true
+            disableWebdriverScreenshotsReporting: false
         }]
     ],
-    cucumberOpts: {
-        // Archivos donde están los step definitions
-        require: ['./features/step-definitions/*.js'],
-        backtrace: false,
-        requireModule: [],
-        dryRun: false,
-        failFast: false,
-        snippets: true,
-        source: true,
-        strict: false,
-        tagExpression: '',
-        timeout: 60000,
-        ignoreUndefinedDefinitions: false
+    mochaOpts: {
+        ui: 'bdd',
+        timeout: 60000
     },
 
     //
