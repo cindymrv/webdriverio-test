@@ -5,6 +5,7 @@ services:
     environment:
       CHECK_RESULTS_EVERY_SECONDS: 1
       KEEP_HISTORY: 1
+      KEEP_HISTORY_LATEST: 25
     ports:
       - "5051:5050"
     volumes:
