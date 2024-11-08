@@ -19,4 +19,19 @@ describe('Login page', () => {
         await expect(LoginPage.errorMessage).toBeDisplayed();
     });
 
+    it('should set the correct values during login', async () => {
+        const tenant = 'monokera_aseguradora';
+        const user = 'cindy.17418191741514';
+        const password = 'Restrepo*812';
+
+        await LoginPage.login(tenant, user, password);
+
+        const tenantValue = await LoginPage.inputTenant.getValue();
+        const userValue = await LoginPage.inputUser.getValue();
+        const passwordValue = await LoginPage.inputPassword.getValue();
+
+        expect(tenantValue).to.equal(tenant);
+        expect(userValue).to.equal(user);
+        expect(passwordValue).to.equal(password);
+    });
 });

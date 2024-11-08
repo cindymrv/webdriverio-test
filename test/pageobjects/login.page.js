@@ -9,6 +9,7 @@ class LoginPage {
     // Métodos
     async login(tenant, user, password) {
         await this.inputTenant.setValue(tenant);
+        //await this.inputUser.waitForDisplayed(); // Espera a que el campo sea visible
         await this.inputUser.setValue(user);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
