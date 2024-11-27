@@ -21,8 +21,7 @@ describe('Login page', () => {
 
     it('should set the correct values during login', async () => {
         const tenant = 'monokera_aseguradora';
-        const user = 'cindy.17418191741514';
-        const password = 'Restrepo*812';
+
 
         await LoginPage.login(tenant, user, password);
 
